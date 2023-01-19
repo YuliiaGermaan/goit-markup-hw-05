@@ -106,6 +106,7 @@ header {
     color:var(--title-text-color);
 
     font-weight:500;
+    transition:color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .list-header-page .item:not(:last-child) {
@@ -133,12 +134,63 @@ header {
     color:var(--title-text-color);
     padding-top:24px;
     padding-bottom:24px;
+
+    transition:color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .list-mail-tel .link:hover,
 .list-mail-tel .link:focus,
 .list-mail-tel .link:active {
     color:var(--accent-color);
+}
+
+.menu-link{
+    position:relative;
+    display:block;
+    padding-top:24px;
+    padding-bottom:24px;
+
+    text-decoration:none;
+
+    font-weight:600;
+    color:var(--accent-color);
+
+}
+
+.menu-link::after{
+    content:'';
+
+    position:absolute;
+    bottom:0;
+    left:0;
+
+    display:block;
+    width: 100%;
+    height:4px;
+    border-radius:2px;
+    background-color: var(--an-accent-color);
+}
+
+.menu-link-hover::after{
+    content:'';
+
+    position:absolute;
+    bottom:0;
+    left:0;
+
+    display:block;
+    width: 100%;
+    height:4px;
+    border-radius:2px;
+    background-color: var(--an-accent-color);
+
+    transform:scaleX(0);
+    transform-origin: left;
+    transition:transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-link-hover:hover::after{
+    transform:scaleX(1);
 }
 
 .list-mail-tel .item:not(:last-child){
@@ -199,15 +251,17 @@ header {
     font-size: 16px;
     line-height: 1.2;
 
+    transition:background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
-.main-btn:hover {
-    background-color:var(--an-accent-color)
-}
-
+.main-btn:hover,
 .main-btn:active {
-    background-color:var(--accent-color)
+    background-color:var(--an-accent-color)
+    box-shadow 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
+
 
 /* unique page */
 
@@ -362,6 +416,7 @@ header {
     background-color:var(--accent-color);
     justify-content:center;
     align-items: center;
+    transition:background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-social:hover{
@@ -490,10 +545,84 @@ header {
     background-color:var(--primary-text-color);
     align-items:center;
     justify-content: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .media-link:hover{
     background-color:#31D0AA;
+}
+
+.backdrop{
+    position:fixed;
+    top:0;
+    left:0;
+    opacity:1;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(46, 47, 66, 0.4);
+    transition:opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden{
+    visibility: hidden;
+    opacity:0;
+    pointer-events:none;
+}
+
+.modal{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%) scale(1);
+    width:408px;
+    height:576px;
+    background: #FCFCFC;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 
+    0px 1px 3px rgba(0, 0, 0, 0.12), 
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    transition:transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden .modal{
+    transform:translate(-50%, -50%) scale(0);
+}
+.modal-button{
+    display:flex;
+    position:absolute;
+    top:24px;
+    right:24px;
+    
+    width: 24px;
+    height: 24px;
+
+    background: #E7E9FC;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius:50%;
+    align-items:center;
+    justify-content: center;
+    cursor:pointer;
+    
+    transition:background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-button:hover,
+.modal-button:active{
+    background-color: var(--an-accent-color);
+}
+
+.modal-button:hover .modal-button-icon,
+.modal-button:active .modal-button-icon{
+    fill:var(--primary-white-color);
+}
+
+.modal-button-icon{
+    width: 8px;
+    height: 8px;
 }
 
 /* Portfolio */
@@ -530,7 +659,13 @@ header {
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
+
+    transition:color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .portfolio-buttons:hover,
 .portfolio-buttons:focus {
     color:var(--primary-white-color);
@@ -552,6 +687,8 @@ header {
     display: block;
     text-decoration: none;
     color:var(--primary-text-color);
+
+    transition:box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .img-links:hover {
