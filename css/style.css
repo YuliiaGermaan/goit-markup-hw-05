@@ -175,7 +175,7 @@ header {
     
 }
 
-.menu-link-hover::after{
+.menu-link.curren::after{
     content:'';
 
     position:absolute;
@@ -193,7 +193,7 @@ header {
     transition:transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.menu-link-hover:hover::after{
+.menu-link.link:hover::after{
     transform:scaleX(1);
 }
 
