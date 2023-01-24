@@ -19,6 +19,7 @@
     --light-color:#F4F4FD;
     --an-accent-color:#404BBF;
     --light-slate:#8E8F99;
+    --color-elipse:#E7E9FC;
 }
 
 body {
@@ -602,7 +603,7 @@ header {
     width: 24px;
     height: 24px;
 
-    background: #E7E9FC;
+    background:var(--color-elipse);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius:50%;
     align-items:center;
@@ -615,17 +616,18 @@ header {
 
 .button-close:hover,
 .button-close:active{
-    background-color: var(--an-accent-color);
-}
-
-.button-close:hover .modal-button-icon,
-.button-close:active .modal-button-icon{
-    fill:var(--primary-white-color);
+    background-color: var(--color-elipse);
 }
 
 .modal-button-icon{
     width: 8px;
     height: 8px;
+    position: absolute;
+    left: 33.33%;
+    right: 33.33%;
+    top: 33.33%;
+    bottom: 33.33%;
+    background:var(--color-elipse);
 }
 
 /* Portfolio */
