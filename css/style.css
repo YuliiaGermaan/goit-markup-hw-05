@@ -644,7 +644,7 @@ header {
 
 .modal-button-icon:hover,
 .modal-button-icon:focus{
-    color:var(--primary-white-color);
+    fill: #ffffff;
 }
 
 
